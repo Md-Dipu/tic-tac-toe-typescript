@@ -1,0 +1,25 @@
+/* :root variables */
+:root {
+    --board-size: 300px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* wrapper */
+.game-board-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* board */
+.game-board {
+    width: var(--board-size);
+    height: var(--board-size);
+    background-color: #29aecf;
+}
