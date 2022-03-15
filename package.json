@@ -1,0 +1,26 @@
+{
+  "name": "tic-tac-toe-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "public/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Md-Dipu/tic-tac-toe-typescript.git"
+  },
+  "keywords": [
+    "tic-tac-toe",
+    "typescript-game"
+  ],
+  "author": "Md. Dipu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Md-Dipu/tic-tac-toe-typescript/issues"
+  },
+  "homepage": "https://github.com/Md-Dipu/tic-tac-toe-typescript#readme",
+  "devDependencies": {
+    "typescript": "^4.6.2"
+  }
+}
