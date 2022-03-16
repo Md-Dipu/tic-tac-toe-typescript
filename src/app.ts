@@ -1,10 +1,12 @@
-const cells: HTMLCollectionOf<Element> = document.getElementsByClassName('cell');
+import move from "./actions/move.js";
+
+const cells = document.getElementsByClassName('cell') as HTMLCollectionOf<HTMLDivElement>;
 
 let player: boolean = true;
 
-[...cells].forEach((cell: Element) => {
-    cell.addEventListener('click', (event: Event) => {
-        (event.target as any).innerText = player ? 'X' : 'O';
-        player = !player;
+[...cells].forEach((cell: HTMLDivElement) => {
+    cell.addEventListener('click', () => {
+        if (move(player, cell))
+            player = !player;
     });
 });
