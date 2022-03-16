@@ -92,5 +92,9 @@
   },
   "include": [
     "src"
+  ],
+  "exclude": [
+    "src/types.ts",
+    "src/interfaces"
   ]
 }
