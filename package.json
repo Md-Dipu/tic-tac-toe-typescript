@@ -1,7 +1,10 @@
 {
   "name": "tic-tac-toe-typescript",
   "version": "1.0.0",
-  "scripts": {},
+  "scripts": {
+    "dev-build": "npx tsc",
+    "dev-watch": "npx tsc -watch"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Md-Dipu/tic-tac-toe-typescript.git"
