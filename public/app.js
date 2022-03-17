@@ -13,3 +13,8 @@ let player = true;
         }
     });
 });
+// controls
+document.getElementById('reset-btn').addEventListener('click', () => {
+    [...cells].forEach((cell) => cell.innerText = '');
+    player = true;
+});

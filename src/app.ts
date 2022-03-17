@@ -16,3 +16,9 @@ let player: boolean = true;
         }
     });
 });
+
+// controls
+(document.getElementById('reset-btn') as HTMLButtonElement).addEventListener('click', () => {
+    [...cells].forEach((cell: HTMLDivElement) => cell.innerText = '');
+    player = true;
+});
