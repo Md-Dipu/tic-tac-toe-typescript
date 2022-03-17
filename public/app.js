@@ -5,16 +5,21 @@ let player = true;
 [...cells].forEach((cell, index) => {
     cell.addEventListener('click', () => {
         if (move(player, cell)) {
-            player = !player; // switching player
             const checkingStatus = checkWinner([...cells], index + 1);
             if (checkingStatus.isFindWinner) {
-                console.log(`Player ${checkingStatus.winner} is winner!`);
+                document.getElementById('end-window').style.display = 'flex';
+                document.getElementById('won-status').innerText = `Player ${player ? 1 : 2} Won!`;
             }
+            player = !player; // switching player
         }
     });
 });
 // controls
-document.getElementById('reset-btn').addEventListener('click', () => {
+const reset = () => {
+    document.getElementById('end-window').style.display = 'none';
+    document.getElementById('won-status').innerText = '';
     [...cells].forEach((cell) => cell.innerText = '');
     player = true;
-});
+};
+document.getElementById('reset-btn').addEventListener('click', reset);
+document.getElementById('re-play').addEventListener('click', reset);
