@@ -1,1 +1,2 @@
-# Tic-Tac-Toe (TypeScript)
+# Tic Tac Toe: Typescript game
+> Purpose of making the web game is learning typescript. Interaction with dom and make functionality for the web-page. To visite live demo [click-here](https://tic-tac-toe-ts1.netlify.app/).
