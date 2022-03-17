@@ -17,12 +17,25 @@ body {
     font-family: 'Fredoka', sans-serif;
 }
 
+/* status bar */
+.title {
+    margin: 10px 0;
+}
+
+.players {
+    display: flex;
+    justify-content: space-between;
+    width: var(--board-size);
+    margin: 5px;
+}
+
 /* wrapper */
 .game-board-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    flex-direction: column;
 }
 
 /* board */
@@ -44,4 +57,16 @@ body {
     font-size: xx-large;
     text-align: center;
     line-height: var(--cell-size);
+}
+
+/* controls */
+.controls {
+    margin: 8px;
+}
+
+.reset-btn {
+    padding: 8px;
+    background-color: #29aecf;
+    color: white;
+    border: none;
 }
