@@ -70,3 +70,23 @@ body {
     color: white;
     border: none;
 }
+
+/* end game lavel */
+.end-display {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ffffff57;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.icon-bar {
+    padding: 15px;
+    background-color: white;
+    border-radius: 50%;
+}
