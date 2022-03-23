@@ -20,8 +20,10 @@ const checkWinner = (cells, cellNumber) => {
     possibleCases.forEach((ca) => {
         const values = ca.map(c => cells[c - 1].innerText);
         const winner = values.reduce((a, b) => (a === b) ? a : '');
-        status.isFindWinner = !!winner;
-        status.winner = winner ? winner === 'X' ? 1 : 2 : null;
+        if (winner) {
+            status.isFindWinner = !!winner;
+            status.winner = winner === 'X' ? 1 : 2;
+        }
     });
     return status;
 };

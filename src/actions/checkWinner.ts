@@ -28,8 +28,10 @@ const checkWinner = (cells: Array<HTMLDivElement>, cellNumber: number): CheckWin
     possibleCases.forEach((ca: winningCase) => {
         const values: string[] = ca.map(c => cells[c - 1].innerText);
         const winner = values.reduce((a: string, b: string) => (a === b) ? a : '');
-        status.isFindWinner = !!winner;
-        status.winner = winner ? winner === 'X' ? 1 : 2 : null;
+        if (winner) {
+            status.isFindWinner = !!winner;
+            status.winner = winner === 'X' ? 1 : 2;
+        }
     });
 
     return status;
