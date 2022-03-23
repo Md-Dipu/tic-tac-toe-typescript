@@ -17,13 +17,14 @@ const checkWinner = (cells, cellNumber) => {
         winner: null
     };
     const possibleCases = allPossibleCases.filter((ca) => ca.includes(cellNumber));
-    possibleCases.forEach((ca) => {
+    possibleCases.some((ca) => {
         const values = ca.map(c => cells[c - 1].innerText);
         const winner = values.reduce((a, b) => (a === b) ? a : '');
         if (winner) {
             status.isFindWinner = !!winner;
             status.winner = winner === 'X' ? 1 : 2;
         }
+        return winner;
     });
     return status;
 };

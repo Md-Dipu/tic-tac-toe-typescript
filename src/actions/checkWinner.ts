@@ -25,13 +25,15 @@ const checkWinner = (cells: Array<HTMLDivElement>, cellNumber: number): CheckWin
     };
 
     const possibleCases = allPossibleCases.filter((ca: winningCase) => ca.includes(cellNumber));
-    possibleCases.forEach((ca: winningCase) => {
+    possibleCases.some((ca: winningCase) => {
         const values: string[] = ca.map(c => cells[c - 1].innerText);
         const winner = values.reduce((a: string, b: string) => (a === b) ? a : '');
         if (winner) {
             status.isFindWinner = !!winner;
             status.winner = winner === 'X' ? 1 : 2;
         }
+
+        return winner;
     });
 
     return status;
