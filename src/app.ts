@@ -1,6 +1,8 @@
-import checkWinner from "./actions/checkWinner.js";
-import move from "./actions/move.js";
+import createBoard from './view/board.js';
+import checkWinner from './actions/checkWinner.js';
+import move from './actions/move.js';
 
+createBoard(3); // creating 3x3 board
 const cells = document.getElementsByClassName('cell') as HTMLCollectionOf<HTMLDivElement>;
 
 let player: boolean = true;
@@ -22,7 +24,7 @@ let player: boolean = true;
 const reset = (): void => {
     (document.getElementById('end-window') as HTMLDivElement).style.display = 'none';
     (document.getElementById('won-status') as HTMLHeadingElement).innerText = '';
-    [...cells].forEach((cell: HTMLDivElement) => cell.innerText = '');
+    [...cells].forEach((cell: HTMLDivElement) => (cell.innerText = ''));
     player = true;
 };
 

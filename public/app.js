@@ -1,5 +1,7 @@
-import checkWinner from "./actions/checkWinner.js";
-import move from "./actions/move.js";
+import createBoard from './view/board.js';
+import checkWinner from './actions/checkWinner.js';
+import move from './actions/move.js';
+createBoard(3); // creating 3x3 board
 const cells = document.getElementsByClassName('cell');
 let player = true;
 [...cells].forEach((cell, index) => {
@@ -18,7 +20,7 @@ let player = true;
 const reset = () => {
     document.getElementById('end-window').style.display = 'none';
     document.getElementById('won-status').innerText = '';
-    [...cells].forEach((cell) => cell.innerText = '');
+    [...cells].forEach((cell) => (cell.innerText = ''));
     player = true;
 };
 document.getElementById('reset-btn').addEventListener('click', reset);
