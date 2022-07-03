@@ -1,8 +1,13 @@
+import BoardConfig from './interfaces/config';
 import createBoard from './view/board.js';
 import checkWinner from './actions/checkWinner.js';
 import move from './actions/move.js';
 
-createBoard(3); // creating 3x3 board
+const boardConfig: BoardConfig = {
+    size: 3,
+};
+
+createBoard(boardConfig); // creating board
 const cells = document.getElementsByClassName('cell') as HTMLCollectionOf<HTMLDivElement>;
 
 let player: boolean = true;

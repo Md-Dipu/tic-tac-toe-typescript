@@ -1,8 +1,8 @@
 const board = document.getElementById('t-g-board');
-const createBoard = (n) => {
+const createBoard = (boardConfig) => {
     let cellNumber = 1;
-    for (let i = 1; i <= n; i++) {
-        for (let j = 1; j <= n; j++) {
+    for (let i = 1; i <= boardConfig.size; i++) {
+        for (let j = 1; j <= boardConfig.size; j++) {
             const div = document.createElement('div');
             div.classList.add('cell');
             div.setAttribute('data-cell', `${cellNumber++}`);

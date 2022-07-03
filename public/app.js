@@ -1,7 +1,10 @@
 import createBoard from './view/board.js';
 import checkWinner from './actions/checkWinner.js';
 import move from './actions/move.js';
-createBoard(3); // creating 3x3 board
+const boardConfig = {
+    size: 3,
+};
+createBoard(boardConfig); // creating board
 const cells = document.getElementsByClassName('cell');
 let player = true;
 [...cells].forEach((cell, index) => {

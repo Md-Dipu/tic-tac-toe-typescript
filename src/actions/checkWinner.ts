@@ -15,19 +15,19 @@ const allPossibleCases: Array<winningCase> = [
 
     // x-case
     [1, 5, 9],
-    [3, 5, 7]
+    [3, 5, 7],
 ];
 
 const checkWinner = (cells: Array<HTMLDivElement>, cellNumber: number): CheckWinnerStatus => {
     const status: CheckWinnerStatus = {
         isFindWinner: false,
-        winner: null
+        winner: null,
     };
 
     const possibleCases = allPossibleCases.filter((ca: winningCase) => ca.includes(cellNumber));
     status.isFindWinner = possibleCases.some((ca: winningCase) => {
-        const values: string[] = ca.map(c => cells[c - 1].innerText);
-        const winner = values.reduce((a: string, b: string) => (a === b) ? a : '');
+        const values: string[] = ca.map((c) => cells[c - 1].innerText);
+        const winner = values.reduce((a: string, b: string) => (a === b ? a : ''));
         if (winner) status.winner = winner === 'X' ? 1 : 2;
         return winner;
     });
