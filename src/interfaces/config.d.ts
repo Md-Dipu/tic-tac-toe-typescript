@@ -1,3 +1,3 @@
-export default interface BoardConfig {
+export interface BoardConfig {
     size: number;
 }

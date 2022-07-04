@@ -1,4 +1,4 @@
-import BoardConfig from './interfaces/config';
+import { BoardConfig } from './interfaces/config';
 import createBoard from './view/board.js';
 import checkWinner from './actions/checkWinner.js';
 import move from './actions/move.js';

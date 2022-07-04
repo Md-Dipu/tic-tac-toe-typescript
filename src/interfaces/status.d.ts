@@ -1,4 +1,4 @@
-export default interface CheckWinnerStatus {
+export interface CheckWinnerStatus {
     isFindWinner: boolean;
     winner: number | null;
 }
