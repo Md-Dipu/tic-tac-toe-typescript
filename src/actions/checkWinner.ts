@@ -1,4 +1,4 @@
-import { CheckWinnerStatus } from '../interfaces/status';
+import CheckWinnerStatus from '../interfaces/status';
 
 type winningCase = number[];
 
