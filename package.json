@@ -1,9 +1,13 @@
 {
   "name": "tic-tac-toe-typescript",
   "version": "v1.1",
+  "description": "Purpose of making the web game is learning typescript. Interaction with dom and make functionality for the web-page. To visite live demo [click-here](https://tic-tac-toe-ts1.netlify.app/).",
+  "source": "src/index.html",
   "scripts": {
-    "dev-build": "npx tsc",
-    "dev-watch": "npx tsc -watch"
+    "start": "parcel src/index.html -p 3000 --open",
+    "build:parcel": "parcel build ./src/index.html --public-url ./ --no-source-maps",
+    "build": "npm run clean && npm run build:parcel",
+    "clean": "rm -rf dist/*"
   },
   "repository": {
     "type": "git",
@@ -13,13 +17,17 @@
     "tic-tac-toe",
     "typescript-game"
   ],
-  "author": "Md. Dipu",
+  "author": {
+    "name": "Md. Dipu",
+    "email": "srdipu@hotmail.com",
+    "url": "https://md-dipu.netlify.app/"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Md-Dipu/tic-tac-toe-typescript/issues"
   },
   "homepage": "https://github.com/Md-Dipu/tic-tac-toe-typescript#readme",
   "devDependencies": {
-    "typescript": "^4.6.2"
+    "parcel": "^2.7.0"
   }
 }

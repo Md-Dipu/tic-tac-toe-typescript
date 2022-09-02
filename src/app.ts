@@ -1,7 +1,7 @@
 import { BoardConfig } from './interfaces/config';
-import createBoard from './view/board.js';
-import checkWinner from './actions/checkWinner.js';
-import move from './actions/move.js';
+import createBoard from './view/board';
+import checkWinner from './actions/checkWinner';
+import move from './actions/move';
 
 const boardConfig: BoardConfig = {
     size: 3,
