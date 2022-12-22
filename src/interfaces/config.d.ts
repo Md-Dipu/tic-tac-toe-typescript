@@ -1,3 +1,10 @@
 export interface BoardConfig {
-    size: number;
+    width: number;
+    height: number;
+    size: {
+        rows: number;
+        cols: number;
+    };
+    spaces: number;
+    winCase: number;
 }

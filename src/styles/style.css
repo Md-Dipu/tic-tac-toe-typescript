@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
 
-/* :root variables */
-:root {
-    --board-size: 300px;
-    --cell-size: calc(var(--board-size) / 3 - 4px);
-}
-
 /* common */
 * {
     margin: 0;
@@ -25,7 +19,7 @@ body {
 .players {
     display: flex;
     justify-content: space-between;
-    width: var(--board-size);
+    width: var(--board-width);
     margin: 5px;
 }
 
@@ -40,8 +34,8 @@ body {
 
 /* board */
 .game-board {
-    width: var(--board-size);
-    height: var(--board-size);
+    width: var(--board-width);
+    height: var(--board-height);
     background-color: #29aecf;
     display: flex;
     flex-wrap: wrap;
@@ -51,19 +45,19 @@ body {
 
 /* cells (board) */
 .cell {
-    width: var(--cell-size);
-    height: var(--cell-size);
+    width: var(--cell-width);
+    height: var(--cell-height);
     border: 2px solid white;
     font-size: xx-large;
     text-align: center;
-    line-height: var(--cell-size);
+    line-height: var(--cell-height);
 }
 
 /* controls */
 .controls {
     margin: 8px;
     display: flex;
-    width: var(--board-size);
+    width: var(--board-width);
     justify-content: space-evenly;
     align-items: center;
 }

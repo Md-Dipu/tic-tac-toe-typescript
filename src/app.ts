@@ -4,7 +4,14 @@ import checkWinner from './actions/checkWinner';
 import move from './actions/move';
 
 const boardConfig: BoardConfig = {
-    size: 3,
+    width: 300,
+    height: 300,
+    size: {
+        rows: 3,
+        cols: 3
+    },
+    spaces: 4,
+    winCase: 3
 };
 
 createBoard(boardConfig); // creating board
