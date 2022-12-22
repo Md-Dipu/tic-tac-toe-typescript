@@ -1,4 +1,4 @@
-import BoardConfig from '../interfaces/config';
+import { BoardConfig } from '../interfaces/config';
 
 const board = document.getElementById('t-g-board') as HTMLDivElement;
 
