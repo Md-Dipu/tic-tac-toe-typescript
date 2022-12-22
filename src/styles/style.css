@@ -62,13 +62,24 @@ body {
 /* controls */
 .controls {
     margin: 8px;
+    display: flex;
+    width: var(--board-size);
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-.reset-btn {
+.controls .btn {
     padding: 8px;
     background-color: #29aecf;
     color: white;
     border: none;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: bolder;
+    border-radius: 5px;
+}
+
+.controls .btn:hover {
+    opacity: 0.7;
 }
 
 /* end game level */
