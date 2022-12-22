@@ -1,20 +1,9 @@
-import { BoardConfig } from './interfaces/config';
 import createBoard from './view/board';
 import checkWinner from './actions/checkWinner';
 import move from './actions/move';
+import { getBoardData } from './utils/boardData';
 
-const boardConfig: BoardConfig = {
-    width: 300,
-    height: 300,
-    size: {
-        rows: 3,
-        cols: 3
-    },
-    spaces: 4,
-    winCase: 3
-};
-
-createBoard(boardConfig); // creating board
+createBoard(getBoardData()); // creating board
 const cells = document.getElementsByClassName('cell') as HTMLCollectionOf<HTMLDivElement>;
 
 let player: boolean = true;
