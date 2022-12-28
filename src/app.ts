@@ -1,7 +1,7 @@
 import createBoard from './view/board';
 import checkWinner from './actions/checkWinner';
 import move from './actions/move';
-import { getBoardData } from './utils/boardData';
+import { getBoardData, setBoardData } from './utils/boardData';
 
 createBoard(getBoardData()); // creating board
 const cells = document.getElementsByClassName('cell') as HTMLCollectionOf<HTMLDivElement>;
@@ -29,5 +29,22 @@ const reset = (): void => {
     player = true;
 };
 
+// board configuration form on submit
+const onSubmitHandler = (e: Event) => {
+    e.preventDefault();
+    const data: FormData = new FormData(e.target as HTMLFormElement);
+    setBoardData({
+        width: Number(data.get('width')),
+        height: Number(data.get('height')),
+        size: {
+            rows: Number(data.get('rows')),
+            cols: Number(data.get('cols'))
+        },
+        spaces: Number(data.get('spaces')),
+        winCase: Number(data.get('win-case'))
+    });
+};
+
 (document.getElementById('reset-btn') as HTMLButtonElement).addEventListener('click', reset);
 (document.getElementById('re-play') as HTMLDivElement).addEventListener('click', reset);
+(document.getElementById('board-config-form') as HTMLFormElement).addEventListener('submit', onSubmitHandler);

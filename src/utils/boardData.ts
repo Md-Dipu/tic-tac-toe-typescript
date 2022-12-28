@@ -6,4 +6,10 @@ const getBoardData = (): BoardConfig => {
     return { width: 300, height: 300, size: { rows: 3, cols: 3 }, spaces: 4, winCase: 3 };
 };
 
-export { getBoardData };
+const setBoardData = (data: BoardConfig): void => {
+    console.log(data);
+    localStorage.setItem('__board_config', JSON.stringify(data));
+    location.reload();
+};
+
+export { getBoardData, setBoardData };
