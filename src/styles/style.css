@@ -26,9 +26,24 @@ body {
 
 .players {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     width: var(--board-width);
     margin: 5px;
+}
+
+.turn-status::after {
+    content: " ";
+    --circle-diameter: 12px;
+    display: inline-block;
+    width: var(--circle-diameter);
+    height: var(--circle-diameter);
+    background-color: none;
+    border-radius: 50%;
+    margin-inline-start: 5px;
+}
+
+.turn-status.turn::after {
+    background-color: green;
 }
 
 /* wrapper */
