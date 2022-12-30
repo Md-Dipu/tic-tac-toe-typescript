@@ -14,10 +14,19 @@ const cells = document.getElementsByClassName('cell') as HTMLCollectionOf<HTMLDi
  * @description here true is for player-1 and false is for player-2
  */
 let player: boolean = true;
+const turnOnPlayer = (): void => {
+    (document.getElementById(`player${player ? 1 : 2}`) as HTMLDivElement).classList.add('turn');
+    (document.getElementById(`player${player ? 2 : 1}`) as HTMLDivElement).classList.remove('turn');
+};
 
+let countMoves: number = 0;
 const boardModal: number[][] = zeroesArray(boardData.size);
+const endPanelShow = (display: string, message: string = ''): void => {
+    (document.getElementById('end-window') as HTMLDivElement).style.display = display;
+    (document.getElementById('won-status') as HTMLHeadingElement).innerText = message;
+};
 
-[...cells].forEach((cell: HTMLDivElement, index: number) => {
+[...cells].forEach((cell: HTMLDivElement) => {
     cell.addEventListener('click', () => {
         if (move(player, cell)) {
             const row = Number(cell.getAttribute('data-row')) - 1;
@@ -30,25 +39,28 @@ const boardModal: number[][] = zeroesArray(boardData.size);
             }, boardData.winCase);
 
             if (isWinnerFound) {
-                (document.getElementById('end-window') as HTMLDivElement).style.display = 'flex';
-                (document.getElementById('won-status') as HTMLHeadingElement).innerText = `Player ${player ? 1 : 2} Won!`;
+                endPanelShow('flex', `Player ${player ? 1 : 2} Won!`);
+                return;
+            }
+
+            if (++countMoves === (boardData.size.rows * boardData.size.cols)) {
+                endPanelShow('flex', 'Match Draw!');
                 return;
             }
 
             player = !player; // switching player
-            (document.getElementById(`player${player ? 1 : 2}`) as HTMLDivElement).classList.add('turn');
-            (document.getElementById(`player${player ? 2 : 1}`) as HTMLDivElement).classList.remove('turn');
+            turnOnPlayer();
         }
     });
 });
 
 // controls
 const reset = (): void => {
-    (document.getElementById('end-window') as HTMLDivElement).style.display = 'none';
-    (document.getElementById('won-status') as HTMLHeadingElement).innerText = '';
     [...cells].forEach((cell: HTMLDivElement) => (cell.innerText = ''));
     zeroesArrayReset(boardModal);
-    player = true;
+    endPanelShow('none');
+    player = true; // switching default
+    turnOnPlayer();
 };
 
 // board configuration form on submit
