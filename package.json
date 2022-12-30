@@ -29,5 +29,6 @@
   "homepage": "https://github.com/Md-Dipu/tic-tac-toe-typescript#readme",
   "devDependencies": {
     "parcel": "^2.7.0"
-  }
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead"
 }

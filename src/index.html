@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic-Tac-Toe Game Play</title>
     <link rel="stylesheet" href="./styles/style.css">
-    <link type="image/png" sizes="50x50" rel="icon" href="https://img.icons8.com/ios/50/000000/play--v3.png">
+    <link type="image/png" sizes="50x50" rel="icon" href="./assets/images/favicon.png">
     <script type="module" defer src="./app.ts"></script>
 </head>
 
@@ -16,8 +16,8 @@
         <!-- status bar -->
         <h2 class="title">Tic-tac-toe</h2>
         <div class="players">
-            <h4>(X) Player-1</h4>
-            <h4>(O) Player-2</h4>
+            <h4 id="player1" class="turn-status turn">(X) Player-1</h4>
+            <h4 id="player2" class="turn-status">(O) Player-2</h4>
         </div>
 
         <!-- board -->
@@ -25,16 +25,41 @@
 
         <!-- controls -->
         <div class="controls">
-            <button id="reset-btn" class="reset-btn">Restart</button>
+            <button id="reset-btn" class="btn">Restart</button>
+            <button id="setting-btn" class="btn"
+                onclick="document.getElementById('config-modal').style.display = 'flex'">Settings</button>
         </div>
 
-        <!-- end game lavel -->
+        <!-- end game level -->
         <div id="end-window" class="end-display">
             <div id="re-play" class="icon-bar">
-                <img
-                    src="https://img.icons8.com/external-flatart-icons-flat-flatarticons/64/000000/external-refresh-arrows-flatart-icons-flat-flatarticons.png" />
+                <img src="./assets/images/refresh.png" alt="Restart game" />
             </div>
             <h4 id="won-status">Player 1 Won!</h4>
+        </div>
+
+        <!-- Config modal -->
+        <div class="modal" id="config-modal">
+            <form id="board-config-form" class="config-form">
+                <h4 style="text-align: center;text-transform: uppercase;">Board <span
+                        style="color: #006781;">configuration</span></h4>
+                <label for="input-width">Width</label>
+                <input type="text" name="width" id="input-width" placeholder="Width" required>
+                <label for="input-height">Height</label>
+                <input type="text" name="height" id="input-height" placeholder="Height" required>
+                <label for="input-rows">Size</label>
+                <div class="flexible">
+                    <input class="half-width" type="text" name="rows" id="input-rows" placeholder="Rows" required>
+                    <input class="half-width" type="text" name="cols" id="input-cols" placeholder="Columns" required>
+                </div>
+                <label for="input-spaces">Spaces</label>
+                <input type="text" name="spaces" id="input-spaces" placeholder="Spaces" required>
+                <label for="input-wincase">Win case</label>
+                <input type="text" name="win-case" id="input-wincase" placeholder="Win case" required>
+                <button type="submit">Save</button>
+                <button type="reset"
+                    onclick="document.getElementById('config-modal').style.display = 'none'">Cancel</button>
+            </form>
         </div>
     </div>
 </body>
