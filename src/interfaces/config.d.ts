@@ -1,4 +1,4 @@
-export interface BoardConfig {
+export interface Board {
     width: number;
     height: number;
     size: {

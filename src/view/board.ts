@@ -1,8 +1,8 @@
-import { BoardConfig } from '../interfaces/config';
+import { Board } from '../interfaces/config';
 
 const board = document.getElementById('t-g-board') as HTMLDivElement;
 
-const createBoard = (boardConfig: BoardConfig): void => {
+const createBoard = (boardConfig: Board): void => {
     const root = document.documentElement as HTMLElement;
     root.style.setProperty('--board-width', `${boardConfig.width}px`);
     root.style.setProperty('--board-height', `${boardConfig.height}px`);
