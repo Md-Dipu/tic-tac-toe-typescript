@@ -14,3 +14,9 @@ export interface Move {
     col: number;
     player: number;
 }
+
+export interface Game {
+    modal: number[][];
+    turn: boolean;
+    moves: number;
+}

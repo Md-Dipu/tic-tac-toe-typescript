@@ -3,6 +3,8 @@ import checkWinner from './actions/checkWinner';
 import move from './actions/move';
 import { getBoardData, setBoardData } from './utils/boardData';
 import { zeroesArray, zeroesArrayReset } from './utils/zeroesArray';
+import { clearGameData, getGameData, setGameData } from './utils/gameData';
+import initBoard from './view/initBoard';
 
 const boardData = getBoardData();
 createBoard(boardData); // creating board
@@ -13,18 +15,32 @@ const cells = document.getElementsByClassName('cell') as HTMLCollectionOf<HTMLDi
  * @default true 
  * @description here true is for player-1 and false is for player-2
  */
-let player: boolean = true;
+let player: boolean;
 const turnOnPlayer = (): void => {
     (document.getElementById(`player${player ? 1 : 2}`) as HTMLDivElement).classList.add('turn');
     (document.getElementById(`player${player ? 2 : 1}`) as HTMLDivElement).classList.remove('turn');
 };
 
-let countMoves: number = 0;
-const boardModal: number[][] = zeroesArray(boardData.size);
+let countMoves: number;
+let boardModal: number[][];
 const endPanelShow = (display: string, message: string = ''): void => {
     (document.getElementById('end-window') as HTMLDivElement).style.display = display;
     (document.getElementById('won-status') as HTMLHeadingElement).innerText = message;
 };
+
+// initialized with saved game
+const savedGameData = getGameData();
+if (savedGameData) {
+    player = savedGameData.turn;
+    countMoves = savedGameData.moves;
+    boardModal = savedGameData.modal;
+    initBoard(savedGameData);
+    turnOnPlayer();
+} else {
+    player = true;
+    countMoves = 0;
+    boardModal = zeroesArray(boardData.size);
+}
 
 [...cells].forEach((cell: HTMLDivElement) => {
     cell.addEventListener('click', () => {
@@ -50,17 +66,30 @@ const endPanelShow = (display: string, message: string = ''): void => {
 
             player = !player; // switching player
             turnOnPlayer();
+
+            // saving game data
+            setGameData({
+                modal: boardModal,
+                turn: player,
+                moves: countMoves
+            });
         }
     });
 });
 
 // controls
 const reset = (): void => {
-    [...cells].forEach((cell: HTMLDivElement) => (cell.innerText = ''));
+    clearGameData();
+    player = true;
+    countMoves = 0;
     zeroesArrayReset(boardModal);
     endPanelShow('none');
-    player = true; // switching default
     turnOnPlayer();
+    initBoard({
+        modal: boardModal,
+        turn: player,
+        moves: countMoves
+    });
 };
 
 // board configuration form on submit
