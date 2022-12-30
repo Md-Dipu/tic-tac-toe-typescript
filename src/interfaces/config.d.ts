@@ -8,3 +8,9 @@ export interface BoardConfig {
     spaces: number;
     winCase: number;
 }
+
+export interface Move {
+    row: number;
+    col: number;
+    player: number;
+}
