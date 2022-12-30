@@ -1,4 +1,5 @@
 import { Board } from "../interfaces/config";
+import { clearGameData } from "./gameData";
 
 const getBoardData = (): Board => {
     const configStr = localStorage.getItem('__board_config');
@@ -7,8 +8,8 @@ const getBoardData = (): Board => {
 };
 
 const setBoardData = (data: Board): void => {
-    console.log(data);
     localStorage.setItem('__board_config', JSON.stringify(data));
+    clearGameData();
     location.reload();
 };
 
