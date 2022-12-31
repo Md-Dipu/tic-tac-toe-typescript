@@ -14,8 +14,8 @@ This project is an offline 2-player mood board game made by typescript. Tic-Tac-
 
 ## Technologies
 
-- [Typescpirt](https://www.typescriptlang.org/) - A strongly typed programming language that builds on JavaScript
-- [Parcel Js](https://parceljs.org/) - The zero configuration build tool for modern apps and libs
+- [Typescript](https://www.typescriptlang.org/) - A strongly typed programming language that builds on JavaScript
+- [Parcel](https://parceljs.org/) - The zero configuration build tool for modern apps and libs
 
 This project is a vanilla typescript project, styled with CSS. No external library is included.
 
