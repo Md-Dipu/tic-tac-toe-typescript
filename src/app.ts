@@ -1,10 +1,11 @@
 import createBoard from './view/board';
 import checkWinner from './actions/checkWinner';
+import initBoard from './view/initBoard';
 import move from './actions/move';
 import { getBoardData, setBoardData } from './utils/boardData';
 import { zeroesArray, zeroesArrayReset } from './utils/zeroesArray';
 import { clearGameData, getGameData, setGameData } from './utils/gameData';
-import initBoard from './view/initBoard';
+import { loadValues, switchModal } from './view/configModal';
 
 const boardData = getBoardData();
 createBoard(boardData); // creating board
@@ -92,6 +93,12 @@ const reset = (): void => {
     });
 };
 
+// board configuration form and display (on)
+const loadCurrentConfig = () => {
+    loadValues(getBoardData())
+    switchModal()
+};
+
 // board configuration form on submit
 const onSubmitHandler = (e: Event) => {
     e.preventDefault();
@@ -109,5 +116,6 @@ const onSubmitHandler = (e: Event) => {
 };
 
 (document.getElementById('reset-btn') as HTMLButtonElement).addEventListener('click', reset);
+(document.getElementById('setting-btn') as HTMLButtonElement).addEventListener('click', loadCurrentConfig);
 (document.getElementById('re-play') as HTMLDivElement).addEventListener('click', reset);
 (document.getElementById('board-config-form') as HTMLFormElement).addEventListener('submit', onSubmitHandler);
